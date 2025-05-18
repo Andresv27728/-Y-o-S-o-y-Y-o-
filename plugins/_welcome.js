@@ -19,22 +19,24 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
-      let bienvenida = `┏━〔 *Bienvenido/a* 〕━┓
-┃ Usuario: ${taguser}
-┃ Grupo: *${groupMetadata.subject}*
-┃
-┃ ✨ ¡Pásala genial con todos!
-┃ 🛠 Usa *#menu* para ver comandos
-┗━━━━━━━━━━━━━━━━━━┛`
+      let bienvenida = `🦈 *¡NUEVA PRESA DETECTADA!* 🌊
+
+┏━〔 *CARDUMEN ${groupMetadata.subject}* 〕━┓
+┃ 🎯 Objetivo: ${taguser}
+┃ 
+┃ 🦈 ¡Bienvenido a las profundidades!
+┃ 🌊 Usa *#menu* para descubrir mis poderes
+┗━━━━━━━━━━━━━━━━━━━━━━━━┛`
       await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
     } else if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE || m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
-      let bye = `┏━〔 *Hasta pronto* 〕━┓
-┃ Usuario: ${taguser}
-┃ Grupo: *${groupMetadata.subject}*
-┃
-┃ 😢 ¡Te extrañaremos!
-┃ 🛠 Usa *#menu* si vuelves
-┗━━━━━━━━━━━━━━━━━━┛`
+      let bye = `🦈 *¡LA PRESA HA ESCAPADO!* 🌊
+
+┏━〔 *CARDUMEN ${groupMetadata.subject}* 〕━┓
+┃ 🎯 Fugitivo: ${taguser}
+┃ 
+┃ 🦈 Ha huido de nuestras aguas...
+┃ 🌊 ¡Volverá cuando sienta el llamado del océano!
+┗━━━━━━━━━━━━━━━━━━━━━━━━┛`
       await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
     }
   }
